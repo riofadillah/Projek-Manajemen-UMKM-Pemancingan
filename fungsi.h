@@ -14,6 +14,6 @@ void pembayaran();
 void hasilIkan();
 void pemenang();
 void akhiriSesi();
-void menuRiwayat();
+void hapusData();
 
 #endif
