@@ -4,7 +4,7 @@
 #include <time.h>
 #include "fungsi.h"
 
-//MENU MAIN
+
 int main(){
  int awal;
     while(1){
@@ -31,7 +31,7 @@ int main(){
      return 0;
 }
 
-//MENU MULAI
+
 void menuMulai(){ 
     int pilihan2;
 
@@ -48,7 +48,7 @@ void menuMulai(){
         printf("8. Akhiri sesi\n");
         printf("Pilihan [1-8]: ");
         scanf("%d", &pilihan2);
-        getchar(); // bersihkan ENTER
+        getchar(); 
 
         switch(pilihan2) {
             case 1:
@@ -79,3 +79,4 @@ void menuMulai(){
 
     } while (pilihan2 != 8);
 }
+
