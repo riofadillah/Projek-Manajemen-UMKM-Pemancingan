@@ -13,7 +13,7 @@ void kantin();
 void pembayaran();
 void hasilIkan();
 void pemenang();
-void akhiriSesi();
+void akhiriProgram();
 void hapusData();
 
 #endif

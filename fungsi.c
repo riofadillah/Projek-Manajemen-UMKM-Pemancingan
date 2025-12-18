@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <math.h>
 #include "fungsi.h"
 
 struct peserta{
@@ -42,4 +43,17 @@ void tambahPeserta(){
 
     }while(lagi=='y' || lagi=='Y');
     }
-    
+
+//AKHIRI PROGRAM
+void akhiriProgram (){
+
+time_t waktu = time (NULL);
+struct tm tm = *localtime(&waktu);
+
+char namaFile [100];
+sprintf (namaFile, "Laporan_%04d-%02d-%02d_%02d-%02d.txt", tm.tm_year + 1900, tm.tm + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
+
+FILE * f = fopen (namaFile, "W");
+
+
+}

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <math.h>
 #include "fungsi.h"
 
 
@@ -67,7 +68,7 @@ void menuMulai(){
                 pemenang();break;
 
             case 8:
-                akhiriSesi();break;
+                akhiriProgram();break;
 
             default:
                 printf("Pilihan tidak valid!\n");
