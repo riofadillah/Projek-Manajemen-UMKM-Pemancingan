@@ -16,7 +16,7 @@ struct peserta{
     int beratIkan;       
 };
 struct peserta data[30];
-int noPeserta = 0;
+int jumlahPeserta = 0;
 
 //TAMBAH PESERTA
 void tambahPeserta(){
@@ -44,9 +44,23 @@ void tambahPeserta(){
     }while(lagi=='y' || lagi=='Y');
     }
 
-//AKHIRI PROGRAM
+//punyyaarin-AKHIRI PROGRAM
 void akhiriProgram (){
 
+//1. bikin perhitungan keuangan
+float totalTiket  = jumlahPeserta * 70000;
+float modalIkan   = jumlahPeserta * 38000;
+float danaHadiah  = jumlahPeserta * 32000;
+float totalKopi   = jumlahPeserta * 5000;
+float totaliMie   = jumlahPeserta * 10000;
+float omsetKantin = 0;
+
+//omsetkantin
+for (int i = 0; i<jumlahPeserta; i++){
+    omsetKantin += (data[i].beliKopi * 5000 + data[i].beliMie * 7000);
+}
+
+//2. bikin nama file
 time_t waktu = time (NULL);
 struct tm tm = *localtime(&waktu);
 
@@ -54,14 +68,19 @@ char namaFile [100];
 sprintf (namaFile, "Laporan_%04d-%02d-%02d_%02d-%02d.txt", tm.tm_year + 1900, tm.tm + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
 
 FILE * f = fopen (namaFile, "W");
+if (f == NULL){
+    printf ("Gagal memuat file laporan!\n");
+    return;
+}
+printf ("Sedang menyimpan laporan ke-'%s'\n");
+
+//3. bikin laporan di file
 
 
 }
 
 
 // FITUR ACAK LAPAK
-
-
 int main() {
     int totalLapak = 28;
     int peserta = 7;
