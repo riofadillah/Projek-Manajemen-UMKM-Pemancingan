@@ -97,7 +97,7 @@ void lihatPeserta() {
         printf("------------------------------------------------------------\n");
         
         for(int i = 0; i < noPeserta; i++){
-
+        printf("%-3d %-20s %-15s %-10s %-5d\n",
             
         }
 //JANGAN DI SINII, BELUM SELESAIII
