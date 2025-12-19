@@ -95,6 +95,11 @@ void lihatPeserta() {
 
         printf("%-3s %-20s %-15s %-10s %-5s\n", "No", "Nama", "No HP", "Bayar", "Lapak");
         printf("------------------------------------------------------------\n");
+        
+        for(int i = 0; i < noPeserta; i++){
+
+            
+        }
 //JANGAN DI SINII, BELUM SELESAIII
 
 
