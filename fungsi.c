@@ -92,3 +92,19 @@ void sortNamaPeserta(){
         }
     }
 }
+
+//PUNYA KHAI UHUY
+//LIHAT PESERTA
+void lihatPeserta() {
+    system("cls");
+
+    if(noPeserta == 0){
+        printf("Belum ada peserta...\n");
+    }
+    else{
+        printf("====================== DATA PESERTA ======================\n");
+        printf("Total peserta: %d\n\n", noPeserta);
+
+        printf("%-3s %-20s %-15s %-10s %-5s\n", "No", "Nama", "No HP", "Bayar", "Lapak");
+        printf("------------------------------------------------------------\n");
+
