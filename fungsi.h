@@ -7,7 +7,7 @@ void acakLapak();
 void menuLihatPeserta();
 void lihatPeserta();
 void cariPeserta();
-void sortDataNama();
+void sortNamaPeserta();
 void sortDataLapak();
 void kantin();
 void pembayaran();
