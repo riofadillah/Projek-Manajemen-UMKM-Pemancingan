@@ -107,4 +107,4 @@ void lihatPeserta() {
 
         printf("%-3s %-20s %-15s %-10s %-5s\n", "No", "Nama", "No HP", "Bayar", "Lapak");
         printf("------------------------------------------------------------\n");
-
+//JANGAN DI SINII, BELUM SELESAIII
