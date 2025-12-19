@@ -57,3 +57,28 @@ FILE * f = fopen (namaFile, "W");
 
 
 }
+
+
+// FITUR ACAK LAPAK
+
+
+int main() {
+    int totalLapak = 28;
+    int peserta = 7;
+
+    int step = round((float) totalLapak / peserta);
+    int posisi = 1;
+
+    for (int i = 0; i < peserta; i++) {
+        if (posisi <= 14)
+            printf("Peserta %d: Lapak %d (Kanan)\n", i + 1, posisi);
+        else
+            printf("Peserta %d: Lapak %d (Kiri)\n", i + 1, posisi);
+
+        posisi += step;
+        if (posisi > totalLapak)
+            posisi = ((posisi - 1) % totalLapak) + 1;
+    }
+
+    return 0;
+}
