@@ -110,8 +110,8 @@ void sortNamaPeserta(){
         for (int j=0; j < jmlhPeserta - i - 1; j++){
             if (strcmp(data[j].nama, data [j + 1].nama) > 0){
                 temp = data[j];
-                data[i] = data [j+1]
-                data [jj + 1];
+                data[j] = data [j+1];
+                data[j + 1] =;
             }
         }
     }
