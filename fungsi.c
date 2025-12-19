@@ -94,7 +94,6 @@ void sortNamaPeserta(){
 }
 
 //PUNYA KHAI UHUY
-//LIHAT PESERTA
 void lihatPeserta() {
     system("cls");
 
@@ -108,3 +107,32 @@ void lihatPeserta() {
         printf("%-3s %-20s %-15s %-10s %-5s\n", "No", "Nama", "No HP", "Bayar", "Lapak");
         printf("------------------------------------------------------------\n");
 //JANGAN DI SINII, BELUM SELESAIII
+
+
+
+//Bagian kakang
+void kantin() {
+    int menu, nomor, jumlah;
+    char lagi;
+
+    do {
+       system("cls");
+        printf("=== WARUNG KANTIN ===\n\n");
+
+        // 1. Tampilkan peserta
+        printf("%-3s %-20s %-5s %-5s\n", "No", "Nama", "Kopi", "Mie");
+        printf("-----------------------------------\n");
+        for (int i = 0; i < noPeserta; i++) {
+            printf("%-3d %-20s %-5d %-5d\n",
+                i + 1,
+                data[i].nama,
+                data[i].beliKopi,
+                data[i].beliMie
+            );
+        }
+
+        printf("\nPilih Nomor Peserta (0 untuk kembali): ");
+        scanf("%d", &nomor);
+        getchar();
+    }
+}
