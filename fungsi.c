@@ -44,41 +44,6 @@ void tambahPeserta(){
     }while(lagi=='y' || lagi=='Y');
     }
 
-//punyyaarin-AKHIRI PROGRAM
-void akhiriProgram (){
-
-//1. bikin perhitungan keuangan
-float totalTiket  = jumlahPeserta * 70000;
-float modalIkan   = jumlahPeserta * 38000;
-float danaHadiah  = jumlahPeserta * 32000;
-float totalKopi   = jumlahPeserta * 5000;
-float totaliMie   = jumlahPeserta * 10000;
-float omsetKantin = 0;
-
-//omsetkantin
-for (int i = 0; i<jumlahPeserta; i++){
-    omsetKantin += (data[i].beliKopi * 5000 + data[i].beliMie * 7000);
-}
-
-//2. bikin nama file
-time_t waktu = time (NULL);
-struct tm tm = *localtime(&waktu);
-
-char namaFile [100];
-sprintf (namaFile, "Laporan_%04d-%02d-%02d_%02d-%02d.txt", tm.tm_year + 1900, tm.tm + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
-
-FILE * f = fopen (namaFile, "W");
-if (f == NULL){
-    printf ("Gagal memuat file laporan!\n");
-    return;
-}
-printf ("Sedang menyimpan laporan ke-'%s'\n");
-
-//3. bikin laporan di file
-
-
-}
-
 
 // FITUR ACAK LAPAK
 int main() {
@@ -154,4 +119,75 @@ void kantin() {
         scanf("%d", &nomor);
         getchar();
     }
+}
+
+//punyyaarin-AKHIRI PROGRAM
+void akhiriProgram (){
+
+//1. bikin perhitungan keuangan
+float totalTiket  = jumlahPeserta * 70000;
+float modalIkan   = jumlahPeserta * 38000;
+float danaHadiah  = jumlahPeserta * 32000;
+float totalKopi   = jumlahPeserta * 5000;
+float totaliMie   = jumlahPeserta * 10000;
+float omsetKantin = 0;
+
+//omsetkantin
+for (int i = 0; i<jumlahPeserta; i++){
+    omsetKantin += (data[i].beliKopi * 5000 + data[i].beliMie * 7000);
+}
+
+//2. bikin nama file
+time_t waktu = time (NULL);
+struct tm tm = *localtime(&waktu);
+
+char namaFile [100];
+sprintf (namaFile, "Laporan_%04d-%02d-%02d_%02d-%02d.txt", tm.tm_year + 1900, tm.tm + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
+
+FILE * f = fopen (namaFile, "W");
+if (f == NULL){
+    printf ("Gagal memuat file laporan!\n");
+    return;
+}
+printf ("Sedang menyimpan laporan ke-'%s'\n");
+
+//3. bikin laporan di file
+fprintf (f, "===LAPORAN SESI PEMANCINGAN===\n");
+fprintf (f, "Waktu cetak: %02d-%02d-%04d Pukul %02d:%02d\n", tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900, tm.tm_hour, tm.tm_min);
+fprintf (f, "Total peserta: %d orang\n\n", jumlahPeserta);
+
+fprintf (f, "---RINGKASAN KEUANGAN---\n");
+fprintf (f, "Total uang tiket masuk : Rp %1d\n", totalTiket);
+fprintf (f, "Modal Belanja ikan     : Rp %1d (disisihkan)\n", modalIkan);
+fprintf (f, "Dana hadiah            : Rp %1d (dibagikan)\n", danaHadiah);
+fprintf (f, "Total pendapatan kantin: Rp %1d\n", omsetKantin);
+
+//data peserta
+fprintf (f, "---DATA PESERTA---\n");
+fprintf (f, "%-4s %-20s %-10s %-10s %-10s %-10s %-10s %-10s\n", "No", "Nama", "Lapak", "Status", "Kopi", "Mie", "Ekor", "Berat(gr)");
+fprintf (f, "------------------------------------------------------------------------------\n");
+
+for (int i = 0; i<jumlahPeserta; i++){
+    fprintf (f, "%-4s %-20s %-10s %-10s %-10s %-10s %-10s %-10s\n"
+    i+1,
+    data [i].nama,
+    data [i].lapak,
+    data [i].sudahBayar ? "Lunas" : "Belum",
+    data [i].beliKopi,
+    data [i].beliMie,
+    data [i].jumlahIkan,
+    data [i].beratIkan,
+    );
+}
+
+fprintf (f, "------------------------------------------------------------------------------\n");
+fclose (f);
+
+//reset data
+jumlahPeserta = 0;
+
+printf("\nSukses! Data telah disimpan di file .txt\n");
+printf("Data telah direset. siap untuk sesi baru!\n");
+printf("Tekan ENTER untuk kembali ke menu utama");
+getchar();
 }
