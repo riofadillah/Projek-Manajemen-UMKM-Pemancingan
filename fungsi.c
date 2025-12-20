@@ -322,7 +322,7 @@ void hasilIkan() {
             scanf("%d", &ekor);
             
             printf("Berat Ikan Terberat (gram): "); // Input berat ikan yang paling besar saja
-            scanf("%d", &berat);1
+            scanf("%d", &berat);
     
             getchar();
 
