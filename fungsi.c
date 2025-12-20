@@ -57,26 +57,52 @@ void tambahPeserta(){
     }
 
 
-// FITUR ACAK LAPAK
-int main() {
-    int totalLapak = 28;
-    int peserta = 7;
-
-    int step = round((float) totalLapak / peserta);
-    int posisi = 1;
-
-    for (int i = 0; i < peserta; i++) {
-        if (posisi <= 14)
-            printf("Peserta %d: Lapak %d (Kanan)\n", i + 1, posisi);
-        else
-            printf("Peserta %d: Lapak %d (Kiri)\n", i + 1, posisi);
-
-        posisi += step;
-        if (posisi > totalLapak)
-            posisi = ((posisi - 1) % totalLapak) + 1;
+//FITUR ACAK LAPAK fiks dari ais
+void acakLapak() {
+    
+    // Cek dulu ada peserta atau tidak
+    if (noPeserta == 0) {
+        printf("Belum ada peserta!\n");
+        printf("Tekan ENTER untuk kembali...");
+        getchar();
+        return;
     }
 
-    return 0;
+    // ===== PENGACAKAN LAPAK =====
+    int totalLapak = 28;
+    int step = round((float) totalLapak / noPeserta);
+    int posisi = 1;
+    // ============================================
+
+    system("cls");
+    printf("=== HASIL ACAK LAPAK ===\n\n");
+    printf("%-20s %-10s %-10s\n", "NAMA", "LAPAK", "POSISI");
+    printf("------------------------------------------\n");
+
+    for(int i = 0; i < noPeserta; i++) {
+
+        
+        // SIMPAN HASIL LAPAK
+        data[i].lapak = posisi;
+
+        // TENTUKAN SISI
+        if (posisi <= 14) {
+            printf("%-20s %-10d %-10s\n", data[i].nama, posisi, "Kanan");
+        } else {
+            printf("%-20s %-10d %-10s\n", data[i].nama, posisi, "Kiri");
+        }
+
+        // PINDAH KE LAPAK BERIKUTNYA
+        posisi += step;
+        if (posisi > totalLapak) {
+            posisi = ((posisi - 1) % totalLapak) + 1;
+        }
+    }
+
+    printf("\nSukses! Lapak sudah disimpan.\n");
+    printf("Tekan ENTER untuk kembali...");
+    getchar();
+
 }
 
 
