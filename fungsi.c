@@ -277,10 +277,10 @@ void pemenang(){
     // rumus: (harga tiket 70.000 - harga ikan perkilo 38.000) = 32.000 sisa untuk hadiah
     float sisaUang = jumlahPeserta * 32000;
 
-   long hadiahBerat = sisaUang * 0.25; // 25%
-    long hadiahJ1   = sisaUang * 0.35; // 35%
-    long hadiahJ2   = sisaUang * 0.25; // 25%
-    long hadiahJ3   = sisaUang * 0.15; // 15%
+    float hadiahBerat = sisaUang * 0.25; // 25%
+    float hadiahJ1    = sisaUang * 0.35; // 35%
+    float hadiahJ2    = sisaUang * 0.25; // 25%
+    float hadiahJ3    = sisaUang * 0.15; // 15%
 
 }
 
