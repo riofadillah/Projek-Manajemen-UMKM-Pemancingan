@@ -124,7 +124,7 @@ void acakLapak() {
 
     // ===== PENGACAKAN LAPAK =====
     int totalLapak = 28;
-    int step = round((float) totalLapak / noPeserta);
+    int step = round((float) totalLapak / jumlahPeserta);
     int posisi = 1;
     // ============================================
 
@@ -133,7 +133,7 @@ void acakLapak() {
     printf("%-20s %-10s %-10s\n", "NAMA", "LAPAK", "POSISI");
     printf("------------------------------------------\n");
 
-    for(int i = 0; i < noPeserta; i++) {
+    for(int i = 0; i < jumlahPeserta; i++) {
 
         
         // SIMPAN HASIL LAPAK
@@ -163,7 +163,7 @@ void acakLapak() {
 //punya dilla - TAMBAH SORTING DATA PESERTA
 void sortNamaPeserta(){
     struct peserta temp;
-    for (int i = 0; i < noPeserta - 1; i++){
+    for (int i = 0; i < jumlahPeserta - 1; i++){
         for (int j = 0; j < noPeserta - i - 1; j++){
             if (strcmp(data[j].nama, data[j + 1].nama) > 0){
                 temp = data[j];
@@ -185,12 +185,12 @@ void lihatPeserta() {
     }
     else{
         printf("====================== DATA PESERTA ======================\n");
-        printf("Total peserta: %d\n\n", noPeserta);
+        printf("Total peserta: %d\n\n", jumlahPeserta);
 
         printf("%-3s %-20s %-15s %-10s %-5s\n", "No", "Nama", "No HP", "Bayar", "Lapak");
         printf("------------------------------------------------------------\n");
         
-        for(int i = 0; i < noPeserta; i++){
+        for(int i = 0; i < jumlahPeserta; i++){
         printf("%-3d %-20s %-15s %-10s %-5d\n",
                            i+1,
                 data[i].nama,
@@ -221,7 +221,7 @@ void kantin() {
         // 1. Tampilkan peserta
         printf("%-3s %-20s %-5s %-5s\n", "No", "Nama", "Kopi", "Mie");
         printf("-----------------------------------\n");
-        for (int i = 0; i < noPeserta; i++) {
+        for (int i = 0; i < jumlahPeserta; i++) {
             printf("%-3d %-20s %-5d %-5d\n",
                 i + 1,
                 data[i].nama,
@@ -233,8 +233,6 @@ void kantin() {
         printf("\nPilih Nomor Peserta (0 untuk kembali): ");
         scanf("%d", &nomor);
         getchar();
-    }
-}
 
 //punyyaarin-AKHIRI PROGRAM
 void akhiriProgram (){
