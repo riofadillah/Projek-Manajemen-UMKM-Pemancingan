@@ -109,12 +109,12 @@ void acakLapak() {
 //punya dilla - TAMBAH SORTING DATA PESERTA
 void sortNamaPeserta(){
     struct peserta temp;
-    for (int i = 0; i < jmlhPeserta - 1; i++){
-        for (int j=0; j < jmlhPeserta - i - 1; j++){
-            if (strcmp(data[j].nama, data [j + 1].nama) > 0){
+    for (int i = 0; i < noPeserta - 1; i++){
+        for (int j = 0; j < noPeserta - i - 1; j++){
+            if (strcmp(data[j].nama, data[j + 1].nama) > 0){
                 temp = data[j];
-                data[j] = data [j+1];
-                data[j + 1] =;
+                data[j] = data[j+1];
+                data[j + 1] = temp;
             }
         }
     }
