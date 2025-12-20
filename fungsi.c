@@ -27,16 +27,16 @@ void tambahPeserta(){
         system("cls");
         printf("=== Input Peserta ===\n");
         printf("Nama : ");
-        scanf(" %[^\n]", data[noPeserta].nama);
+        scanf(" %[^\n]", data[jumlahPeserta].nama);
         printf("No HP: ");
-        scanf(" %[^\n]", data[noPeserta].nohp);
+        scanf(" %[^\n]", data[jumlahPeserta].nohp);
 
-        data[noPeserta].sudahBayar = 0;
-        data[noPeserta].lapak = 0;
-        data[noPeserta].beliKopi = 0;
-        data[noPeserta].beliMie = 0;
-        data[noPeserta].jumlahIkan = 0;
-        data[noPeserta].beratIkan = 0;
+        data[jumlahPeserta].sudahBayar = 0;
+        data[jumlahPeserta].lapak = 0;
+        data[jumlahPeserta].beliKopi = 0;
+        data[jumlahPeserta].beliMie = 0;
+        data[jumlahPeserta].jumlahIkan = 0;
+        data[jumlahPeserta].beratIkan = 0;
         noPeserta++;
 
         printf("Input lagi? (y/n): ");
@@ -45,10 +45,10 @@ void tambahPeserta(){
         getchar();
 
         //Minimal Peserta tujuh
-        if((lagi == 'n' || lagi == 'N') && noPeserta < 7) {
+        if((lagi == 'n' || lagi == 'N') && jumlahPeserta < 7) {
             system ("cls");
             printf("Peserta Minimal 7 orang!\n");
-            printf("Jumlah Peserta Saat ini: %d\n\n", noPeserta);
+            printf("Jumlah Peserta Saat ini: %d\n\n", jumlahPeserta);
             printf("1. Tambah Peserta lagi\n");
             printf("2. Batalkan sesi pemancingan\n");
             printf("Pilih (1/2): ");
@@ -77,7 +77,7 @@ void menuLihatPeserta() {
     do {
         system("cls");
         printf("======= LIHAT PESERTA =======\n");
-        printf("Total peserta: %d\n\n", noPeserta);
+        printf("Total peserta: %d\n\n", jumlahPeserta);
         printf("1. Tampilkan daftar asli\n");
         printf("2. Urutkan berdasarkan nama (A-Z)\n");
         printf("3. Urutkan berdasarkan nomor lapak\n");
@@ -115,7 +115,7 @@ void menuLihatPeserta() {
 void acakLapak() {
     
     // Cek dulu ada peserta atau tidak
-    if (noPeserta == 0) {
+    if (jumlahPeserta == 0) {
         printf("Belum ada peserta!\n");
         printf("Tekan ENTER untuk kembali...");
         getchar();
@@ -164,7 +164,7 @@ void acakLapak() {
 void sortNamaPeserta(){
     struct peserta temp;
     for (int i = 0; i < jumlahPeserta - 1; i++){
-        for (int j = 0; j < noPeserta - i - 1; j++){
+        for (int j = 0; j < jumlahPeserta - i - 1; j++){
             if (strcmp(data[j].nama, data[j + 1].nama) > 0){
                 temp = data[j];
                 data[j] = data[j+1];
@@ -180,7 +180,7 @@ void sortNamaPeserta(){
 void lihatPeserta() {
     system("cls");
 
-    if(noPeserta == 0){
+    if(jumlahPeserta == 0){
         printf("Belum ada peserta...\n");
     }
     else{
@@ -235,8 +235,8 @@ void kantin() {
         getchar();
 
 //dilla - HASIL PEMENANG
-int pemenang(){
-    if (noPeserta == 0){
+void pemenang(){
+    if (jumlahPeserta == 0){
         printf("Belum ada peserta.\n");
         printf("Tekan ENTER untuk kembali...");
         getchar();
@@ -244,7 +244,7 @@ int pemenang(){
     }
     //Menghitung uang untuk hadiah
     // rumus: (harga tiket 70.000 - harga ikan perkilo 38.000) = 32.000 sisa untuk hadiah
-    long sisaUang = noPeserta * 32000;
+    float sisaUang = jumlahPeserta * 32000;
 }
 //punyyaarin-AKHIRI PROGRAM
 void akhiriProgram (){
