@@ -262,7 +262,8 @@ void kantin() {
     } while (lagi == 'y' || lagi == 'Y');
 }
 
-
+// Hasil ikan punya ais
+bntar lagi dibuat
 
 //dilla - HASIL PEMENANG
 void pemenang(){
