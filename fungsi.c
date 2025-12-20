@@ -71,6 +71,7 @@ void tambahPeserta(){
 }
 
 
+
 //daris-MENU LIHAT PESERTA
 void menuLihatPeserta() {
     int pilih;
@@ -160,21 +161,6 @@ void acakLapak() {
 }
 
 
-//punya dilla - TAMBAH SORTING DATA PESERTA
-void sortNamaPeserta(){
-    struct peserta temp;
-    for (int i = 0; i < jumlahPeserta - 1; i++){
-        for (int j = 0; j < jumlahPeserta - i - 1; j++){
-            if (strcmp(data[j].nama, data[j + 1].nama) > 0){
-                temp = data[j];
-                data[j] = data[j+1];
-                data[j + 1] = temp;
-            }
-        }
-    }
-    printf("\nData peserta berhasil diurutkan berdasarkan Nama peserta(A-Z)\n");
-    lihatPeserta();
-}
 
 //PUNYA KHAI UHUY
 void lihatPeserta() {
@@ -206,7 +192,7 @@ void lihatPeserta() {
     printf("\nTekan ENTER untuk kembali ke menu...");
     getchar();
 }
-//KKKKKKKKAKAAAAAAAAAAAAII
+
 
 
 //Bagian kakang
@@ -276,6 +262,8 @@ void kantin() {
     } while (lagi == 'y' || lagi == 'Y');
 }
 
+
+
 //dilla - HASIL PEMENANG
 void pemenang(){
     if (jumlahPeserta == 0){
@@ -294,6 +282,27 @@ void pemenang(){
     int hadiahJ3    = sisaUang * 15 / 100; // 15%
 
 }
+
+
+
+//punya dilla - TAMBAH SORTING DATA PESERTA
+void sortNamaPeserta(){
+    struct peserta temp;
+    for (int i = 0; i < jumlahPeserta - 1; i++){
+        for (int j = 0; j < jumlahPeserta - i - 1; j++){
+            if (strcmp(data[j].nama, data[j + 1].nama) > 0){
+                temp = data[j];
+                data[j] = data[j+1];
+                data[j + 1] = temp;
+            }
+        }
+    }
+    printf("\nData peserta berhasil diurutkan berdasarkan Nama peserta(A-Z)\n");
+    lihatPeserta();
+}
+
+
+
 //punyyaarin-AKHIRI PROGRAM
 void akhiriProgram (){
 
