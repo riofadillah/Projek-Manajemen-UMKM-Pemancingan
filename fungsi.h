@@ -14,6 +14,5 @@ void pembayaran();
 void hasilIkan();
 void pemenang();
 void akhiriProgram();
-void hapusData();
 
 #endif
