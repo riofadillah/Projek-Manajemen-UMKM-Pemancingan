@@ -16,7 +16,7 @@ struct peserta{
     int beratIkan;       
 };
 struct peserta data[30];
-int noPeserta = 0;
+int jumlahPeserta = 0;
 
 //daris-Tambah Peserta
 void tambahPeserta(){
