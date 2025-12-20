@@ -333,7 +333,21 @@ void pemenang(){
     }
 
     printf("\n--- KATEGORI IKAN TERBANYAK (JUMLAH EKOR) ---\n");
+    printf("JUARA 1  : %s (%d ekor)\n", temp[0].nama, temp[0].jumlahIkan);
+    printf("Hadiah   : Rp %ld\n", hadiahJ1);
+    if (jumlahPeserta >= 2) {
+        printf("JUARA 2  : %s (%d ekor)\n", temp[1].nama, temp[1].jumlahIkan);
+        printf("Hadiah   : Rp %ld\n", hadiahJ2);
+    }
+    if (jumlahPeserta >= 3) {
+        printf("JUARA 3  : %s (%d ekor)\n", temp[2].nama, temp[2].jumlahIkan);
+        printf("Hadiah   : Rp %ld\n", hadiahJ3);
+    }
 
+    printf("\n============================================\n");
+    printf("Mancing mantap! Selamat kepada para pemenang ^-^\n");
+    printf("Tekan ENTER untuk kembali...");
+    getchar();
 }
 
 //punya dilla - TAMBAH SORTING DATA PESERTA
