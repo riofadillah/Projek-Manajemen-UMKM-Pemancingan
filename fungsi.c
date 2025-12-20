@@ -44,7 +44,7 @@ void tambahPeserta(){
         lagi = getchar();   
         getchar();
 
-        //Minimal Peserta lebih dari 7
+        //Minimal Peserta tujuh
         if((lagi == 'n' || lagi == 'N') && noPeserta < 7) {
             system ("cls");
             printf("Peserta Minimal 7 orang!\n");
