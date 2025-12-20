@@ -287,7 +287,7 @@ void hasilIkan() {
         printf("=== INPUT HASIL PANCINGAN ===\n");
         printf("Masukkan data hasil tangkapan peserta.\n\n");
 
-        if (noPeserta == 0) {
+        if (jumlahPeserta == 0) {
             printf("Belum ada peserta.\n");
             printf("Tekan ENTER untuk kembali...");
             getchar();
@@ -297,7 +297,7 @@ void hasilIkan() {
         // Tampilkan tabel biar admin gampang lihat data yang sudah masuk
         printf("%-3s %-20s %-10s %-15s\n", "No", "Nama", "Jml Ekor", "Berat Induk(gr)");
         printf("----------------------------------------------------\n");
-        for (int i = 0; i < noPeserta; i++) {
+        for (int i = 0; i < jumlahPeserta; i++) {
             printf("%-3d %-20s %-10d %-15d\n", 
                 i + 1, 
                 data[i].nama, 
@@ -313,7 +313,7 @@ void hasilIkan() {
         if (nomor == 0) break;
 
         // Validasi nomor
-        if (nomor > 0 && nomor <= noPeserta) {
+        if (nomor > 0 && nomor <= jumlahPeserta) {
             int idx = nomor - 1;
 
             printf("\n--- Input Data untuk %s ---\n", data[idx].nama);
