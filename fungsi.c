@@ -21,6 +21,7 @@ int jumlahPeserta = 0;
 //Tambah Peserta
 void tambahPeserta(){
     char lagi;
+    char konfirmasi;
     do{
         system("cls");
         printf("=== Input Peserta ===\n");
@@ -43,11 +44,11 @@ void tambahPeserta(){
         getchar();
 
         //Minimal Peserta lebih dari 7
-        if((lagi == 'n' || lagi == 'N')) && noPeserta < 7 {
+        if((lagi == 'n' || lagi == 'N') && noPeserta < 7) {
             system ("cls");
             printf("Peserta Minimal 7 orang!\n");
             printf("Jumlah Peserta Saat ini: %d\n\n", noPeserta);
-            printf("1. Tambah Peserta lagi\n")
+            printf("1. Tambah Peserta lagi\n");
             printf("2. Batalkan sesi pemancingan\n");
             printf("Pilih (1/2): ");
             konfirmasi = getchar();
@@ -72,7 +73,7 @@ void tambahPeserta(){
 
 //Selanjutnya tambah Menu Lihat Peserta 
 void menuLihatPeserta (){
-    //BelUUM
+    //BelUUM.....
 
 
 }
