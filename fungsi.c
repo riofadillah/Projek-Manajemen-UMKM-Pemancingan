@@ -15,7 +15,7 @@ struct peserta{
     int jumlahIkan;      
     int beratIkan;       
 };
-struct peserta data[30];
+struct peserta data[28];
 int jumlahPeserta = 0;
 
 //daris-Tambah Peserta
@@ -70,7 +70,6 @@ void tambahPeserta(){
     }while(lagi=='y' || lagi=='Y');
 }
 
-
 //daris-MENU LIHAT PESERTA
 void menuLihatPeserta() {
     int pilih;
@@ -108,7 +107,6 @@ void menuLihatPeserta() {
         
     } while(pilih != 5);
 }
-
 
 //FITUR ACAK LAPAK fiks dari ais
 void acakLapak() {
@@ -258,7 +256,6 @@ void kantin() {
     } while (lagi == 'y' || lagi == 'Y');
 }
 
-
 //Kakang juga
 void sortLapak() {
     struct peserta temp; 
@@ -278,7 +275,6 @@ void sortLapak() {
         }
     }
 }
-
 
 
 // Hasil ikan punya ais
@@ -340,7 +336,6 @@ void pemenang(){
 
 }
 
-
 //punya dilla - TAMBAH SORTING DATA PESERTA
 void sortNamaPeserta(){
     struct peserta temp;
@@ -356,8 +351,6 @@ void sortNamaPeserta(){
     printf("\nData peserta berhasil diurutkan berdasarkan Nama peserta(A-Z)\n");
     lihatPeserta();
 }
-
-
 
 //punyaarinn-CARI peserta
 void cariPeserta (){
