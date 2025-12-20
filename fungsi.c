@@ -16,12 +16,13 @@ struct peserta{
     int beratIkan;       
 };
 struct peserta data[30];
-int jumlahPeserta = 0;
+int noPeserta = 0;
 
 //Tambah Peserta
 void tambahPeserta(){
     char lagi;
     char konfirmasi;
+
     do{
         system("cls");
         printf("=== Input Peserta ===\n");
