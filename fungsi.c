@@ -318,9 +318,26 @@ void pemenang(){
             if(temp[j].jumlahIkan < temp[j+1].jumlahIkan) { // Tanda < biar urut dari besar
                 struct peserta t = temp[j];
                 temp[j] = temp[j+1];
+                temp[j+1]=t;
             }
         }
     }
+     system("cls");
+    printf("=== PENGUMUMAN JUARA PEMANCINGAN ===\n");
+    printf("Total Peserta: %d orang\n", jumlahPeserta);
+    printf("Total Dana Hadiah: Rp %ld\n\n", sisaUang);
+
+    printf("--- KATEGORI IKAN TERBERAT (MASTER KOJA) ---\n");
+    if (maxBerat > 0 && indexBerat != -1) {
+        printf("PEMENANG : %s\n", data[indexBerat].nama);
+        printf("Berat    : %d gram\n", data[indexBerat].beratIkan);
+        printf("Hadiah   : Rp %ld\n", hadiahBerat);
+    } else {
+        printf("Belum ada data berat ikan.\n");
+    }
+
+    printf("\n--- KATEGORI IKAN TERBANYAK (JUMLAH EKOR) ---\n");
+
 }
 
 
