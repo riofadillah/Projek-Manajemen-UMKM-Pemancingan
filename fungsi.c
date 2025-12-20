@@ -18,7 +18,7 @@ struct peserta{
 struct peserta data[30];
 int jumlahPeserta = 0;
 
-//belum selesai 
+//Tambah Peserta
 void tambahPeserta(){
     char lagi;
     do{
@@ -42,19 +42,41 @@ void tambahPeserta(){
         lagi = getchar();   
         getchar();
 
-        //Minimal Peserta
+        //Minimal Peserta lebih dari 7
         if((lagi == 'n' || lagi == 'N')) && noPeserta < 7 {
             system ("cls");
             printf("Peserta Minimal 7 orang!\n");
             printf("Jumlah Peserta Saat ini: %d\n\n", noPeserta);
             printf("1. Tambah Peserta lagi\n")
-            printf("")
+            printf("2. Batalkan sesi pemancingan\n");
+            printf("Pilih (1/2): ");
+            konfirmasi = getchar();
+            getchar();
+
+            if (konfirmasi == '1') {
+                lagi = 'y'; // kembali ke input peserta
+            } else {
+                    system("cls");
+                    printf("\nSesi pemancingan dibatalkan\n");
+                    printf("\nProgram dihentikan.\n");
+                    exit(0);
+            }
 
 
         }
 
     }while(lagi=='y' || lagi=='Y');
-    }
+}
+
+
+
+//Selanjutnya tambah Menu Lihat Peserta 
+void menuLihatPeserta (){
+    //BelUUM
+
+
+}
+
 
 
 //FITUR ACAK LAPAK fiks dari ais
