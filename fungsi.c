@@ -234,6 +234,18 @@ void kantin() {
         scanf("%d", &nomor);
         getchar();
 
+//dilla - HASIL PEMENANG
+int pemenang(){
+    if (noPeserta == 0){
+        printf("Belum ada peserta.\n");
+        printf("Tekan ENTER untuk kembali...");
+        getchar();
+        return;
+    }
+    //Menghitung uang untuk hadiah
+    // rumus: (harga tiket 70.000 - harga ikan perkilo 38.000) = 32.000 sisa untuk hadiah
+    long sisaUang = noPeserta * 32000;
+}
 //punyyaarin-AKHIRI PROGRAM
 void akhiriProgram (){
 
