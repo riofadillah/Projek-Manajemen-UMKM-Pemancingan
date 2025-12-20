@@ -286,7 +286,7 @@ void sortLapak() {
 
 
 // Hasil ikan punya ais
-bntar lagi dibuat
+//bntar lagi dibuat
 
 //dilla - HASIL PEMENANG
 void pemenang(){
@@ -325,7 +325,87 @@ void sortNamaPeserta(){
     lihatPeserta();
 }
 
+//punyaarinn-CARI peserta
+void cariPeserta (){
+int pilih;
+do{
+    system ("cls");
+    printf ("=======SEARCH PESERTA=======\n");
+    printf ("1. Cari berdasarkan nama\n");
+    printf ("2. Cari berdasarkan lapak\n");
+    printf ("3. Kembali\n");
+    printf ("pilih: ");
+    scanf ("%d", &pilih);
+    getchar ();
+    
+    if (pilih==1){
+        char kataKunci[30];
+        printf ("Masukkan nama yang ingin dicari: ");
+        scanf ("%[^\n]", kataKunci);
+        getchar ();
+        
+        printf("\n--- Hasil pencarian Nama '%s' ---\n", kataKunci);
+        printf("%-3s %-20s %-15s %-10s %-5s\n", "No", "Nama", "No HP", "Bayar", "Lapak");
+        printf("-------------------------------------------------------------\n");
 
+
+        int found = 0;
+        for (int i = 0; i < jumlahPeserta; i++){
+            if (strstr (data[i].nama, kataKunci) != NULL){
+                printf("%-3d %-20s %-15s %-10s %-5d\n",
+                        i + 1,
+                        data[i].nama,
+                        data[i].nohp,
+                        data[i].sudahBayar ? "Lunas" : "Belum",
+                        data[i].lapak
+                    );
+                    found++;
+            }
+        }
+    if (found == 0){
+        printf ("Peserta tidak ditemukan.\n");
+     }    
+    }
+    else if (pilih == 2){
+        int lap;
+        printf ("Masukkan nomor lapak yang dicari: ");
+        scanf ("%d", &lap);
+        getchar();
+        
+        printf("\n--- Hasil pencarian Lapak %d ---\n", lap);
+            printf("%-3s %-20s %-15s %-10s %-5s\n", "No", "Nama", "No HP", "Bayar", "Lapak");
+            printf("-------------------------------------------------------------\n");
+            
+        int found = 0;
+        for (int i = 0; i < jumlahPeserta; i++){
+            if (data[i].lapak == lap){
+                printf ("%-3d %-20s %-15s %-10s %-5d\n",
+                i + 1,
+                data[i].nama,
+                data[i].nohp,
+                data[i].sudahBayar ? "Lunas" : "Belum",
+                data [i]. lapak
+                );
+                found++;
+            }
+        }
+        if (found == 0){
+            printf ("Peserta di lapak %d tidak ditemukan.\n",lap);
+        }
+    }
+    else if (pilih == 3){
+        printf ("Kembali ke menu utama..\n");
+    }
+    else {
+        printf ("Pilihan tidak valid!\n");
+    }
+    if ( pilih >= 1 && pilih <=2){
+        printf ("\nTekan ENTER untuk kembali ke menu search...")
+        while (getchar() != '\n');
+        getchar ();
+    }
+    }while (pilih !=3);
+}
 
 //punyyaarin-AKHIRI PROGRAM
 void akhiriProgram (){
