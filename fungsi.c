@@ -37,7 +37,7 @@ void tambahPeserta(){
         data[jumlahPeserta].beliMie = 0;
         data[jumlahPeserta].jumlahIkan = 0;
         data[jumlahPeserta].beratIkan = 0;
-        noPeserta++;
+        jumlahPeserta++;
 
         printf("Input lagi? (y/n): ");
         getchar();
@@ -233,6 +233,48 @@ void kantin() {
         printf("\nPilih Nomor Peserta (0 untuk kembali): ");
         scanf("%d", &nomor);
         getchar();
+
+        if (nomor == 0) break;
+        if (nomor < 1 || nomor > jumlahPeserta) {
+            printf("Nomor tidak valid!\n");
+            getchar();
+            continue;
+        }
+
+        int idx = nomor - 1;
+
+        // 3. Menu kantin
+        printf("\n--- Menu Kantin untuk %s ---\n", data[idx].nama);
+        printf("1. Kopi (Rp 5.000)\n");
+        printf("2. Mie  (Rp10.000)\n");
+        printf("3. Batal\n");
+        printf("Pilih menu: ");
+        scanf("%d", &menu);
+        getchar();
+
+        if (menu == 3) continue;
+        printf("Jumlah beli: ");
+        scanf("%d", &jumlah);
+        getchar();
+
+        if (menu == 1) {
+            data[idx].beliKopi += jumlah;
+            printf("Berhasil! %s membeli %d kopi.\n", data[idx].nama, jumlah);
+        } 
+        else if (menu == 2) {
+            data[idx].beliMie += jumlah;
+            printf("Berhasil! %s membeli %d mie.\n", data[idx].nama, jumlah);
+        } 
+        else {
+            printf("Menu tidak valid!\n");
+        }
+
+        printf("\nTransaksi lain? (y/n): ");
+        lagi = getchar();
+        getchar();
+
+    } while (lagi == 'y' || lagi == 'Y');
+}
 
 //dilla - HASIL PEMENANG
 void pemenang(){
