@@ -292,8 +292,7 @@ void pemenang(){
         getchar();
         return;
     }
-    //Menghitung uang untuk hadiah
-    // rumus: (harga tiket 70.000 - harga ikan perkilo 38.000) = 32.000 sisa untuk hadiah
+    // 1. Menghitung uang hadiah -rumus: (harga tiket 70.000 - harga ikan perkilo 38.000) = 32.000 sisa untuk hadiah
     float sisaUang = jumlahPeserta * 32000;
 
     float hadiahBerat = sisaUang * 0.25f; // 25%
@@ -301,6 +300,27 @@ void pemenang(){
     float hadiahJ2    = sisaUang * 0.25f; // 25%
     float hadiahJ3    = sisaUang * 0.15f; // 15%
 
+    //2. Mencari juara trberat (Master Koja - 1 orang)
+    int indexBerat= -1;
+    int maxBerat =-1;
+    for (int i = 0; i < jumlahPeserta; i++){
+        if (data[i].beratIkan >maxBerat){
+            maxBerat = data[i].beratIkan;
+            indexBerat = i;
+        }
+    }
+
+    //3.Mencari juara terbanyak (3 orang)
+    struct peserta temp[28];
+    memcpy(temp, data, sizeof(data));
+     for(int i = 0; i < jumlahPeserta - 1; i++) {
+        for(int j = 0; j < jumlahPeserta - i - 1; j++) {
+            if(temp[j].jumlahIkan < temp[j+1].jumlahIkan) { // Tanda < biar urut dari besar
+                struct peserta t = temp[j];
+                temp[j] = temp[j+1];
+            }
+        }
+    }
 }
 
 
