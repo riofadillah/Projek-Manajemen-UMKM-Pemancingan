@@ -18,9 +18,10 @@ struct peserta{
 struct peserta data[30];
 int jumlahPeserta = 0;
 
-//TAMBAH PESERTA
+//Tambah Peserta
 void tambahPeserta(){
     char lagi;
+    char konfirmasi;
     do{
         system("cls");
         printf("=== Input Peserta ===\n");
@@ -31,7 +32,8 @@ void tambahPeserta(){
 
         data[noPeserta].sudahBayar = 0;
         data[noPeserta].lapak = 0;
-        data[noPeserta].beliKantin = 0;
+        data[noPeserta].beliKopi = 0;
+        data[noPeserta].beliMie = 0;
         data[noPeserta].jumlahIkan = 0;
         data[noPeserta].beratIkan = 0;
         noPeserta++;
@@ -41,45 +43,106 @@ void tambahPeserta(){
         lagi = getchar();   
         getchar();
 
+        //Minimal Peserta lebih dari 7
+        if((lagi == 'n' || lagi == 'N') && noPeserta < 7) {
+            system ("cls");
+            printf("Peserta Minimal 7 orang!\n");
+            printf("Jumlah Peserta Saat ini: %d\n\n", noPeserta);
+            printf("1. Tambah Peserta lagi\n");
+            printf("2. Batalkan sesi pemancingan\n");
+            printf("Pilih (1/2): ");
+            konfirmasi = getchar();
+            getchar();
+
+            if (konfirmasi == '1') {
+                lagi = 'y'; // kembali ke input peserta
+            } else {
+                    system("cls");
+                    printf("\nSesi pemancingan dibatalkan\n");
+                    printf("\nProgram dihentikan.\n");
+                    exit(0);
+            }
+
+
+        }
+
     }while(lagi=='y' || lagi=='Y');
+}
+
+
+
+//Selanjutnya tambah Menu Lihat Peserta 
+void menuLihatPeserta (){
+    //BelUUM.....
+
+
+}
+
+
+
+//FITUR ACAK LAPAK fiks dari ais
+void acakLapak() {
+    
+    // Cek dulu ada peserta atau tidak
+    if (noPeserta == 0) {
+        printf("Belum ada peserta!\n");
+        printf("Tekan ENTER untuk kembali...");
+        getchar();
+        return;
     }
 
-
-// FITUR ACAK LAPAK
-int main() {
+    // ===== PENGACAKAN LAPAK =====
     int totalLapak = 28;
-    int peserta = 7;
-
-    int step = round((float) totalLapak / peserta);
+    int step = round((float) totalLapak / noPeserta);
     int posisi = 1;
+    // ============================================
 
-    for (int i = 0; i < peserta; i++) {
-        if (posisi <= 14)
-            printf("Peserta %d: Lapak %d (Kanan)\n", i + 1, posisi);
-        else
-            printf("Peserta %d: Lapak %d (Kiri)\n", i + 1, posisi);
+    system("cls");
+    printf("=== HASIL ACAK LAPAK ===\n\n");
+    printf("%-20s %-10s %-10s\n", "NAMA", "LAPAK", "POSISI");
+    printf("------------------------------------------\n");
 
+    for(int i = 0; i < noPeserta; i++) {
+
+        
+        // SIMPAN HASIL LAPAK
+        data[i].lapak = posisi;
+
+        // TENTUKAN SISI
+        if (posisi <= 14) {
+            printf("%-20s %-10d %-10s\n", data[i].nama, posisi, "Kanan");
+        } else {
+            printf("%-20s %-10d %-10s\n", data[i].nama, posisi, "Kiri");
+        }
+
+        // PINDAH KE LAPAK BERIKUTNYA
         posisi += step;
-        if (posisi > totalLapak)
+        if (posisi > totalLapak) {
             posisi = ((posisi - 1) % totalLapak) + 1;
+        }
     }
 
-    return 0;
+    printf("\nSukses! Lapak sudah disimpan.\n");
+    printf("Tekan ENTER untuk kembali...");
+    getchar();
+
 }
 
 
 //punya dilla - TAMBAH SORTING DATA PESERTA
 void sortNamaPeserta(){
     struct peserta temp;
-    for (int i = 0; i < jmlhPeserta - 1; i++){
-        for (int j=0; j < jmlhPeserta - i - 1; j++){
-            if (strcmp(data[j].nama, data [j + 1].nama) > 0){
+    for (int i = 0; i < noPeserta - 1; i++){
+        for (int j = 0; j < noPeserta - i - 1; j++){
+            if (strcmp(data[j].nama, data[j + 1].nama) > 0){
                 temp = data[j];
-                data[j] = data [j+1];
-                data[j + 1] =;
+                data[j] = data[j+1];
+                data[j + 1] = temp;
             }
         }
     }
+    printf("\nData peserta berhasil diurutkan berdasarkan Nama peserta(A-Z)\n");
+    lihatPeserta();
 }
 
 //PUNYA KHAI UHUY
@@ -95,6 +158,23 @@ void lihatPeserta() {
 
         printf("%-3s %-20s %-15s %-10s %-5s\n", "No", "Nama", "No HP", "Bayar", "Lapak");
         printf("------------------------------------------------------------\n");
+        
+        for(int i = 0; i < noPeserta; i++){
+        printf("%-3d %-20s %-15s %-10s %-5d\n",
+                           i+1,
+                data[i].nama,
+                data[i].nohp,
+                data[i].sudahBayar ? "Lunas" : "Belum",
+                data[i].lapak
+            );
+        }
+
+        printf("=============================================================\n");
+    
+    }
+    printf("\nTekan ENTER untuk kembali ke menu...");
+    getchar();
+}
 //JANGAN DI SINII, BELUM SELESAIII
 
 
