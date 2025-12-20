@@ -48,7 +48,7 @@ void tambahPeserta(){
             printf("Peserta Minimal 7 orang!\n");
             printf("Jumlah Peserta Saat ini: %d\n\n", noPeserta);
             printf("1. Tambah Peserta lagi\n")
-
+            printf("")
 
 
         }
@@ -110,8 +110,20 @@ void lihatPeserta() {
         
         for(int i = 0; i < noPeserta; i++){
         printf("%-3d %-20s %-15s %-10s %-5d\n",
-            
+                           i+1,
+                data[i].nama,
+                data[i].nohp,
+                data[i].sudahBayar ? "Lunas" : "Belum",
+                data[i].lapak
+            );
         }
+
+        printf("=============================================================\n");
+    
+    }
+    printf("\nTekan ENTER untuk kembali ke menu...");
+    getchar();
+}
 //JANGAN DI SINII, BELUM SELESAIII
 
 
