@@ -278,7 +278,71 @@ void sortLapak() {
 
 
 // Hasil ikan punya ais
-//bntar lagi dibuat
+void hasilIkan() {
+    int nomor, ekor, berat;
+    char lanjut;
+
+    do {
+        system("cls");
+        printf("=== INPUT HASIL PANCINGAN ===\n");
+        printf("Masukkan data hasil tangkapan peserta.\n\n");
+
+        if (noPeserta == 0) {
+            printf("Belum ada peserta.\n");
+            printf("Tekan ENTER untuk kembali...");
+            getchar();
+            return;
+        }
+
+        // Tampilkan tabel biar admin gampang lihat data yang sudah masuk
+        printf("%-3s %-20s %-10s %-15s\n", "No", "Nama", "Jml Ekor", "Berat Induk(gr)");
+        printf("----------------------------------------------------\n");
+        for (int i = 0; i < noPeserta; i++) {
+            printf("%-3d %-20s %-10d %-15d\n", 
+                i + 1, 
+                data[i].nama, 
+                data[i].jumlahIkan, 
+                data[i].beratIkan);
+        }
+        printf("----------------------------------------------------\n");
+
+        printf("\nPilih Nomor Peserta (0 untuk kembali): ");
+        scanf("%d", &nomor);
+        getchar();
+
+        if (nomor == 0) break;
+
+        // Validasi nomor
+        if (nomor > 0 && nomor <= noPeserta) {
+            int idx = nomor - 1;
+
+            printf("\n--- Input Data untuk %s ---\n", data[idx].nama);
+            
+            printf("Jumlah Ikan (ekor)       : ");
+            scanf("%d", &ekor);
+            
+            printf("Berat Ikan Terberat (gram): "); // Input berat ikan yang paling besar saja
+            scanf("%d", &berat);1
+    
+            getchar();
+
+            // Simpan ke database
+            data[idx].jumlahIkan = ekor;
+            data[idx].beratIkan  = berat;
+
+            printf("\nData berhasil disimpan!\n");
+
+        } else {
+            printf("Nomor peserta tidak valid!\n");
+        }
+
+        printf("\nInput data peserta lain? (y/n): ");
+        lanjut = getchar();
+        getchar();
+
+    } while (lanjut == 'y' || lanjut == 'Y');
+}
+
 
 //dilla - HASIL PEMENANG
 void pemenang(){
