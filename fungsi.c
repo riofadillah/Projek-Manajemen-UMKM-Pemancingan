@@ -98,8 +98,20 @@ void lihatPeserta() {
         
         for(int i = 0; i < noPeserta; i++){
         printf("%-3d %-20s %-15s %-10s %-5d\n",
-            
+                           i+1,
+                data[i].nama,
+                data[i].nohp,
+                data[i].sudahBayar ? "Lunas" : "Belum",
+                data[i].lapak
+            );
         }
+
+        printf("=============================================================\n");
+    
+    }
+    printf("\nTekan ENTER untuk kembali ke menu...");
+    getchar();
+}
 //JANGAN DI SINII, BELUM SELESAIII
 
 
