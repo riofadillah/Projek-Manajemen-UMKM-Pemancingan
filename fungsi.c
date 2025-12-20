@@ -118,7 +118,7 @@ void sortNamaPeserta(){
             }
         }
     }
-    printf("Data peserta berhasil diurutkan berdasarkan Nama peserta(A-Z)\n");
+    printf("\nData peserta berhasil diurutkan berdasarkan Nama peserta(A-Z)\n");
     lihatPeserta();
 }
 
