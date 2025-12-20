@@ -18,7 +18,7 @@ struct peserta{
 struct peserta data[30];
 int noPeserta = 0;
 
-//Tambah Peserta
+//daris-Tambah Peserta
 void tambahPeserta(){
     char lagi;
     char konfirmasi;
@@ -71,12 +71,42 @@ void tambahPeserta(){
 }
 
 
+//daris-MENU LIHAT PESERTA
+void menuLihatPeserta() {
+    int pilih;
+    do {
+        system("cls");
+        printf("======= LIHAT PESERTA =======\n");
+        printf("Total peserta: %d\n\n", noPeserta);
+        printf("1. Tampilkan daftar asli\n");
+        printf("2. Urutkan berdasarkan nama (A-Z)\n");
+        printf("3. Urutkan berdasarkan nomor lapak\n");
+        printf("4. Cari peserta\n");
+        printf("5. Kembali\n");
+        printf("Pilih: ");
+        scanf("%d",&pilih);
+        getchar(); // buang newline
 
-//Selanjutnya tambah Menu Lihat Peserta 
-void menuLihatPeserta (){
-    //BelUUM.....
+        struct peserta temp[30]; // array sementara untuk sorting
+        memcpy(temp, data, sizeof(data));
 
-
+        switch(pilih) {
+            case 1:
+                lihatPeserta();break;
+            case 2: // sort nama A-Z
+                 sortDataNama();break;
+            case 3: // sort lapak
+               sortDataLapak();break;
+            case 4:
+                cariPeserta();break;;
+            case 5:
+                printf("Kembali ke menu utama...\n");break;
+            default:
+                printf("Pilihan tidak valid!\n");
+                continue; // kembali ke menu pilihan
+        }
+        
+    } while(pilih != 5);
 }
 
 
