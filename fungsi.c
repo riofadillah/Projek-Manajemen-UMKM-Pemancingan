@@ -434,7 +434,7 @@ do{
         printf ("Pilihan tidak valid!\n");
     }
     if ( pilih >= 1 && pilih <=2){
-        printf ("\nTekan ENTER untuk kembali ke menu search...")
+        printf ("\nTekan ENTER untuk kembali ke menu search...");
         while (getchar() != '\n');
         getchar ();
     }
