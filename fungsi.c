@@ -176,8 +176,7 @@ void lihatPeserta() {
     printf("\nTekan ENTER untuk kembali ke menu...");
     getchar();
 }
-//JANGAN DI SINII, BELUM SELESAIII
-
+//KKKKKKKKAKAAAAAAAAAAAAII
 
 
 //Bagian kakang
