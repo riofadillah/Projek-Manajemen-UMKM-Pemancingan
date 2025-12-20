@@ -95,7 +95,7 @@ void menuLihatPeserta() {
             case 1:
                 lihatPeserta();break;
             case 2: // sort nama A-Z
-                 sortDataNama();break;
+                 sortNamaPeserta();break;
             case 3: // sort lapak
                sortDataLapak();break;
             case 4:
