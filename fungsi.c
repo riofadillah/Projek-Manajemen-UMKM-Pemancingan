@@ -18,7 +18,7 @@ struct peserta{
 struct peserta data[30];
 int jumlahPeserta = 0;
 
-//TAMBAH PESERTA
+//belum selesai 
 void tambahPeserta(){
     char lagi;
     do{
@@ -31,7 +31,8 @@ void tambahPeserta(){
 
         data[noPeserta].sudahBayar = 0;
         data[noPeserta].lapak = 0;
-        data[noPeserta].beliKantin = 0;
+        data[noPeserta].beliKopi = 0;
+        data[noPeserta].beliMie = 0;
         data[noPeserta].jumlahIkan = 0;
         data[noPeserta].beratIkan = 0;
         noPeserta++;
@@ -40,6 +41,17 @@ void tambahPeserta(){
         getchar();
         lagi = getchar();   
         getchar();
+
+        //Minimal Peserta
+        if((lagi == 'n' || lagi == 'N')) && noPeserta < 7 {
+            system ("cls");
+            printf("Peserta Minimal 7 orang!\n");
+            printf("Jumlah Peserta Saat ini: %d\n\n", noPeserta);
+            printf("1. Tambah Peserta lagi\n")
+
+
+
+        }
 
     }while(lagi=='y' || lagi=='Y');
     }
