@@ -71,7 +71,6 @@ void tambahPeserta(){
 }
 
 
-
 //daris-MENU LIHAT PESERTA
 void menuLihatPeserta() {
     int pilih;
@@ -109,7 +108,6 @@ void menuLihatPeserta() {
         
     } while(pilih != 5);
 }
-
 
 
 //FITUR ACAK LAPAK fiks dari ais
@@ -161,7 +159,6 @@ void acakLapak() {
 }
 
 
-
 //PUNYA KHAI UHUY
 void lihatPeserta() {
     system("cls");
@@ -192,7 +189,6 @@ void lihatPeserta() {
     printf("\nTekan ENTER untuk kembali ke menu...");
     getchar();
 }
-
 
 
 //Bagian kakang
@@ -308,7 +304,6 @@ void pemenang(){
 }
 
 
-
 //punya dilla - TAMBAH SORTING DATA PESERTA
 void sortNamaPeserta(){
     struct peserta temp;
@@ -324,6 +319,8 @@ void sortNamaPeserta(){
     printf("\nData peserta berhasil diurutkan berdasarkan Nama peserta(A-Z)\n");
     lihatPeserta();
 }
+
+
 
 //punyaarinn-CARI peserta
 void cariPeserta (){
