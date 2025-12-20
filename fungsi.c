@@ -228,7 +228,7 @@ time_t waktu = time (NULL);
 struct tm tm = *localtime(&waktu);
 
 char namaFile [100];
-sprintf (namaFile, "Laporan_%04d-%02d-%02d_%02d-%02d.txt", tm.tm_year + 1900, tm.tm + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
+sprintf (namaFile, "Laporan_%04d-%02d-%02d_%02d-%02d.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
 
 FILE * f = fopen (namaFile, "W");
 if (f == NULL){
@@ -254,7 +254,7 @@ fprintf (f, "%-4s %-20s %-10s %-10s %-10s %-10s %-10s %-10s\n", "No", "Nama", "L
 fprintf (f, "------------------------------------------------------------------------------\n");
 
 for (int i = 0; i<jumlahPeserta; i++){
-    fprintf (f, "%-4s %-20s %-10s %-10s %-10s %-10s %-10s %-10s\n"
+    fprintf (f, "%-4s %-20s %-10s %-10s %-10s %-10s %-10s %-10s\n",
     i+1,
     data [i].nama,
     data [i].lapak,
@@ -262,7 +262,7 @@ for (int i = 0; i<jumlahPeserta; i++){
     data [i].beliKopi,
     data [i].beliMie,
     data [i].jumlahIkan,
-    data [i].beratIkan,
+    data [i].beratIkan
     );
 }
 
@@ -272,7 +272,7 @@ fclose (f);
 //reset data
 jumlahPeserta = 0;
 
-printf("\nSukses! Data telah disimpan di file .txt\n");
+printf("\nSukses! Laporan Data telah disimpan di file .txt\n");
 printf("Data telah direset. siap untuk sesi baru!\n");
 printf("Tekan ENTER untuk kembali ke menu utama");
 getchar();
