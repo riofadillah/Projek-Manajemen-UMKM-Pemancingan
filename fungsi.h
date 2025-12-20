@@ -8,7 +8,7 @@ void menuLihatPeserta();
 void lihatPeserta();
 void cariPeserta();
 void sortNamaPeserta();
-void sortDataLapak();
+void sortLapak();
 void kantin();
 void pembayaran();
 void hasilIkan();

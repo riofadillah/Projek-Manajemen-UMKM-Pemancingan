@@ -262,6 +262,29 @@ void kantin() {
     } while (lagi == 'y' || lagi == 'Y');
 }
 
+
+//Kakang juga
+void sortLapak() {
+    struct peserta temp; 
+
+    
+    for (int i = 0; i < jumlahPeserta - 1; i++) {
+        for (int j = 0; j < jumlahPeserta - i - 1; j++) {
+            
+            
+            if (data[j].lapak > data[j + 1].lapak) {
+                
+                
+                temp = data[j];
+                data[j] = data[j + 1];
+                data[j + 1] = temp;
+            }
+        }
+    }
+}
+
+
+
 // Hasil ikan punya ais
 bntar lagi dibuat
 
