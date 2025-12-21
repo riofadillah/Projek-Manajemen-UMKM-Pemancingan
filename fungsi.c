@@ -261,19 +261,24 @@ void sortLapak() {
     struct peserta temp; 
 
     
-    for (int i = 0; i < jumlahPeserta - 1; i++) {
+      for (int i = 0; i < jumlahPeserta - 1; i++) {
         for (int j = 0; j < jumlahPeserta - i - 1; j++) {
             
-            
+            // Bandingkan: Kalau lapak sekarang lebih besar dari lapak depannya
+            // Contoh: Lapak 5 ada di depan Lapak 2 -> TUKAR!
             if (data[j].lapak > data[j + 1].lapak) {
                 
-                
+                // Proses tukar posisi (Swap)
                 temp = data[j];
                 data[j] = data[j + 1];
                 data[j + 1] = temp;
             }
         }
     }
+
+    printf("\nData berhasil diurutkan berdasarkan Nomor Lapak (Terkecil -> Terbesar)!\n");
+    // Langsung tampilkan hasilnya
+    lihatPeserta(); 
 }
 
 
