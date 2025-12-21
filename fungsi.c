@@ -535,7 +535,7 @@ struct tm tm = *localtime(&waktu);
 char namaFile [100];
 sprintf (namaFile, "Laporan_%04d-%02d-%02d_%02d-%02d.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
 
-FILE * f = fopen (namaFile, "W");
+FILE * f = fopen (namaFile, "w");
 if (f == NULL){
     printf ("Gagal memuat file laporan!\n");
     return;
@@ -548,10 +548,10 @@ fprintf (f, "Waktu cetak: %02d-%02d-%04d Pukul %02d:%02d\n", tm.tm_mday, tm.tm_m
 fprintf (f, "Total peserta: %d orang\n\n", jumlahPeserta);
 
 fprintf (f, "---RINGKASAN KEUANGAN---\n");
-fprintf (f, "Total uang tiket masuk : Rp %1d\n", totalTiket);
-fprintf (f, "Modal Belanja ikan     : Rp %1d (disisihkan)\n", modalIkan);
-fprintf (f, "Dana hadiah            : Rp %1d (dibagikan)\n", danaHadiah);
-fprintf (f, "Total pendapatan kantin: Rp %1d\n", omsetKantin);
+fprintf (f, "Total uang tiket masuk : Rp %ld\n", totalTiket);
+fprintf (f, "Modal Belanja ikan     : Rp %ld (disisihkan)\n", modalIkan);
+fprintf (f, "Dana hadiah            : Rp %ld (dibagikan)\n", danaHadiah);
+fprintf (f, "Total pendapatan kantin: Rp %ld\n", omsetKantin);
 
 //data peserta
 fprintf (f, "---DATA PESERTA---\n");
