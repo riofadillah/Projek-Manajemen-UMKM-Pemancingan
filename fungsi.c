@@ -593,7 +593,7 @@ void pembayaran() {
         printf("=== KASIR PEMBAYARAN ===\n");
         printf("Harga Tiket: Rp 70.000/orang\n");
         printf("Harga Kopi : Rp  5.000/gelas\n");
-        printf("Harga Mie  : Rp  7.000/porsi\n\n");
+        printf("Harga Mie  : Rp  10.000/porsi\n\n");
 
         // Header tabel
         printf("%-3s %-20s %-15s %-15s %-12s\n",
@@ -628,7 +628,7 @@ void pembayaran() {
             else {
                 int biayaTiket = 70000;
                 int biayaKopi  = data[idx].beliKopi * 5000;
-                int biayaMie   = data[idx].beliMie * 7000;
+                int biayaMie   = data[idx].beliMie * 10000;
                 totalTagihan   = biayaTiket + biayaKopi + biayaMie;
 
                 printf("\n--- Rincian Tagihan %s ---\n", data[idx].nama);
