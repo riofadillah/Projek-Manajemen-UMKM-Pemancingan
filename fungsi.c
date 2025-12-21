@@ -563,7 +563,7 @@ printf ("Sedang menyimpan laporan ke-'%s'\n",namaFile);
 fprintf(f, "=== LAPORAN SESI PEMANCINGAN ===\n");
     fprintf(f, "Waktu Cetak : %02d-%02d-%04d Pukul %02d:%02d\n", 
             tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900, tm.tm_hour, tm.tm_min);
-    fprintf(f, "Total Peserta: %d Orang\n\n", noPeserta);
+    fprintf(f, "Total Peserta: %d Orang\n\n", jumlahPeserta);
 
     fprintf(f, "--- RINGKASAN KEUANGAN ---\n");
     fprintf(f, "1. Total Uang Tiket Masuk : Rp %ld\n", totalTiket);
