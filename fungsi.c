@@ -353,12 +353,12 @@ void pemenang(){
         return;
     }
     // 1. Menghitung uang hadiah -rumus: (harga tiket 70.000 - harga ikan perkilo 38.000) = 32.000 sisa untuk hadiah
-    float sisaUang = jumlahPeserta * 32000;
+    int sisaUang = jumlahPeserta * 32000;
 
-    float hadiahBerat = sisaUang * 0.25f; // 25%
-    float hadiahJ1    = sisaUang * 0.35f; // 35%
-    float hadiahJ2    = sisaUang * 0.25f; // 25%
-    float hadiahJ3    = sisaUang * 0.15f; // 15%
+    long hadiahBerat = sisaUang * 0.25; // 25%
+    long hadiahJ1    = sisaUang * 0.35; // 35%
+    long hadiahJ2    = sisaUang * 0.25; // 25%
+    long hadiahJ3    = sisaUang * 0.15; // 15%
 
     //2. Mencari juara trberat (Master Koja - 1 orang)
     int indexBerat= -1;
