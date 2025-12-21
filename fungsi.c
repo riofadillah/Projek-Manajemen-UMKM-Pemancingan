@@ -110,7 +110,7 @@ void menuLihatPeserta() {
 
 //FITUR ACAK LAPAK fiks dari ais
 void acakLapak() {
-    
+
     // Cek dulu ada peserta atau tidak
     if (jumlahPeserta == 0) {
         printf("Belum ada peserta!\n");
@@ -123,6 +123,9 @@ void acakLapak() {
     int totalLapak = 28;
     int step = round((float) totalLapak / jumlahPeserta);
     int posisi = 1;
+
+    // Penanda lapak terpakai (angka 1–28)
+    int lapakTerpakai[29] = {0};
     // ============================================
 
     system("cls");
@@ -132,18 +135,26 @@ void acakLapak() {
 
     for(int i = 0; i < jumlahPeserta; i++) {
 
-        
-        // SIMPAN HASIL LAPAK
-        data[i].lapak = posisi;
+        // Cari lapak kosong (antisipasi jika ada tabrakan posisi)
+        while (lapakTerpakai[posisi] == 1) {
+            posisi++;
+            if (posisi > totalLapak) {
+                posisi = 1;
+            }
+        }
 
-        // TENTUKAN SISI
+        // Simpan hasil lapak
+        data[i].lapak = posisi;
+        lapakTerpakai[posisi] = 1;
+
+        // Tentukan sisi lapak
         if (posisi <= 14) {
             printf("%-20s %-10d %-10s\n", data[i].nama, posisi, "Kanan");
         } else {
             printf("%-20s %-10d %-10s\n", data[i].nama, posisi, "Kiri");
         }
 
-        // PINDAH KE LAPAK BERIKUTNYA
+        // Pindah ke posisi berikutnya berdasarkan step
         posisi += step;
         if (posisi > totalLapak) {
             posisi = ((posisi - 1) % totalLapak) + 1;
@@ -153,7 +164,6 @@ void acakLapak() {
     printf("\nSukses! Lapak sudah disimpan.\n");
     printf("Tekan ENTER untuk kembali...");
     getchar();
-
 }
 
 
@@ -545,47 +555,41 @@ if (f == NULL){
     printf ("Gagal memuat file laporan!\n");
     return;
 }
-printf ("Sedang menyimpan laporan ke-'%s'\n");
+printf ("Sedang menyimpan laporan ke-'%s'\n",namaFile);
 
 //3. bikin laporan di file
-fprintf (f, "===LAPORAN SESI PEMANCINGAN===\n");
-fprintf (f, "Waktu cetak: %02d-%02d-%04d Pukul %02d:%02d\n", tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900, tm.tm_hour, tm.tm_min);
-fprintf (f, "Total peserta: %d orang\n\n", jumlahPeserta);
+ fprintf(f, "--- DATA PESERTA ---\n");
+    fprintf(f,
+        "%-4s %-20s %-8s %-10s %-6s %-6s %-6s %-10s\n",
+        "No", "Nama", "Lapak", "Status",
+        "Kopi", "Mie", "Ekor", "Berat");
+    fprintf(f,
+        "--------------------------------------------------------------------------\n");
 
-fprintf (f, "---RINGKASAN KEUANGAN---\n");
-fprintf (f, "Total uang tiket masuk : Rp %ld\n", totalTiket);
-fprintf (f, "Modal Belanja ikan     : Rp %ld (disisihkan)\n", modalIkan);
-fprintf (f, "Dana hadiah            : Rp %ld (dibagikan)\n", danaHadiah);
-fprintf (f, "Total pendapatan kantin: Rp %ld\n", omsetKantin);
+    for (int i = 0; i < jumlahPeserta; i++) {
+        fprintf(f,
+            "%-4d %-20s %-8d %-10s %-6d %-6d %-6d %-10d\n",
+            i + 1,
+            data[i].nama,
+            data[i].lapak,
+            data[i].sudahBayar ? "Lunas" : "Belum",
+            data[i].beliKopi,
+            data[i].beliMie,
+            data[i].jumlahIkan,
+            data[i].beratIkan);
+    }
 
-//data peserta
-fprintf (f, "---DATA PESERTA---\n");
-fprintf (f, "%-4s %-20s %-10s %-10s %-10s %-10s %-10s %-10s\n", "No", "Nama", "Lapak", "Status", "Kopi", "Mie", "Ekor", "Berat(gr)");
-fprintf (f, "------------------------------------------------------------------------------\n");
+    fprintf(f,
+        "--------------------------------------------------------------------------\n");
+    fclose(f);
 
-for (int i = 0; i<jumlahPeserta; i++){
-    fprintf (f, "%-4s %-20s %-10s %-10s %-10s %-10s %-10s %-10s\n",
-    i+1,
-    data [i].nama,
-    data [i].lapak,
-    data [i].sudahBayar ? "Lunas" : "Belum",
-    data [i].beliKopi,
-    data [i].beliMie,
-    data [i].jumlahIkan,
-    data [i].beratIkan
-    );
-}
+    // Reset data
+    jumlahPeserta = 0;
 
-fprintf (f, "------------------------------------------------------------------------------\n");
-fclose (f);
-
-//reset data
-jumlahPeserta = 0;
-
-printf("\nSukses! Laporan Data telah disimpan di file .txt\n");
-printf("Data telah direset. siap untuk sesi baru!\n");
-printf("Tekan ENTER untuk kembali ke menu utama");
-getchar();
+    printf("\nSUKSES! Laporan berhasil disimpan.\n");
+    printf("Data direset, siap untuk sesi baru.\n");
+    printf("Tekan ENTER untuk kembali...");
+    getchar();
 }
 
 // Naufal- Pembayaran
