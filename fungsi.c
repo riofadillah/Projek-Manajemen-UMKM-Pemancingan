@@ -520,12 +520,12 @@ float totalTiket  = jumlahPeserta * 70000;
 float modalIkan   = jumlahPeserta * 38000;
 float danaHadiah  = jumlahPeserta * 32000;
 float totalKopi   = jumlahPeserta * 5000;
-float totaliMie   = jumlahPeserta * 10000;
+float totalMie   = jumlahPeserta * 10000;
 float omsetKantin = 0;
 
 //omsetkantin
 for (int i = 0; i<jumlahPeserta; i++){
-    omsetKantin += (data[i].beliKopi * 5000 + data[i].beliMie * 7000);
+    omsetKantin += (data[i].beliKopi * 5000 + data[i].beliMie * 10000);
 }
 
 //2. bikin nama file
