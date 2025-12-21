@@ -585,82 +585,77 @@ getchar();
 
 // Naufal- Pembayaran
 void pembayaran() {
-    int Pilih,UangBayar,TotalTagihan,Kembalian;
+    int pilih, uangBayar, totalTagihan, kembalian;
     char lanjut;
 
     do {
         system("cls");
-        printf("===KASIR PEMBAYARAN===\n");
+        printf("=== KASIR PEMBAYARAN ===\n");
         printf("Harga Tiket: Rp 70.000/orang\n");
         printf("Harga Kopi : Rp  5.000/gelas\n");
-        printf("Harga Kopi : Rp  7.000/porsi\n");
-        if (NoPeserta == 0){
-            printf("Belum ada peserta\n");
-            printf("Tekan ENTER untuk kembali...\n");
-            getchar();
-            return();
-        }
-    }
-    
-    // Tampilkan daftar tagihan
-        printf("%-3s %-20s %-10s %-15s\n", "No", "Nama", "Total kopi", "Total mie", "Status");
-        printf("----------------------------------------------------\n");
+        printf("Harga Mie  : Rp  7.000/porsi\n\n");
+
+        // Header tabel
+        printf("%-3s %-20s %-15s %-15s %-12s\n",
+               "No", "Nama", "Total Kopi", "Total Mie", "Status");
+        printf("-----------------------------------------------------------------\n");
+
+        // Isi tabel (SUDAH BENAR)
         for (int i = 0; i < jumlahPeserta; i++) {
-            printf("%-3d %-20s %-15d %-15d %-15s\n", 
-                i + 1, 
-                data[i].nama, 
+            printf("%-3d %-20s %-15d %-15d %-12s\n", 
+                i + 1,
+                data[i].nama,
                 data[i].beliKopi,
                 data[i].beliMie,
-                data[i].sudahBayar ? "LUNAS" : "BELUM BAYAR"); // Cek status 0 atau 1
+                data[i].sudahBayar ? "LUNAS" : "BELUM BAYAR"
+            );
         }
-        printf("----------------------------------------------------\n");
+        printf("-----------------------------------------------------------------\n");
 
-        printf("\npilih jumlahPeserta (0 untuk kembali):");
+        printf("\nPilih Nomor Peserta (0 untuk kembali): ");
         scanf("%d", &pilih);
         getchar();
 
-        if (pilih == 0) break; // keluar menu
+        if (pilih == 0) break;
 
-        int idx = pilih - 1; // sesuaikan dengan index array (mulai dari 0)
+        int idx = pilih - 1;
 
-    // validasi no urut 
-        if (idx >= 0 && idx < noPeserta) {
-    
-    // cek kalo udah lunas, jangan ditagih lagi
-        if (data[idx].sudahBayar == 1) {
-            printf("\nPeserta atas nama %s SUDAH LUNAS.\n", data[idx].nama);
+        if (idx >= 0 && idx < jumlahPeserta) {
 
-        }
+            if (data[idx].sudahBayar == 1) {
+                printf("\nPeserta atas nama %s SUDAH LUNAS.\n", data[idx].nama);
+            } 
+            else {
+                int biayaTiket = 70000;
+                int biayaKopi  = data[idx].beliKopi * 5000;
+                int biayaMie   = data[idx].beliMie * 7000;
+                totalTagihan   = biayaTiket + biayaKopi + biayaMie;
 
-        else {
-    // === HITUNG TAGIHAN ===
-        int biayaTiket = 70000;
-        int biayaKopi  = data[idx].beliKopi *5000;
-        int biayaMie   = data[idx]. beliMie *7000;
-        totalTagihan   = biayaTiket + biayaKopi + biayaMie;
+                printf("\n--- Rincian Tagihan %s ---\n", data[idx].nama);
+                printf("Tiket Mancing      : Rp 70.000\n");
+                printf("Kopi (%d gelas)     : Rp %d\n", data[idx].beliKopi, biayaKopi);
+                printf("Mie  (%d porsi)     : Rp %d\n", data[idx].beliMie, biayaMie);
+                printf("------------------------------ +\n");
+                printf("TOTAL HARUS DIBAYAR : Rp %d\n", totalTagihan);
 
+                printf("\nMasukkan Uang Pembayaran: Rp ");
+                scanf("%d", &uangBayar);
+                getchar();
 
-        printf("\n--- Rincian Tagihan %s ---\n", data[idx].nama);
-        printf("Tiket Mancing   : Rp 70.000\n");
-        printf("Kopi (%d gelas) : Rp %d\n", data[idx].beliKopi, biayaKopi);
-        printf("Mie (%d porsi)  : Rp %d\n", data[idx].beliMie, biayaMie);
-        printf("-------------------------- +\n");
-        printf("TOTAL HARUS DIBAYAR: Rp %d\n", totalTagihan);
-
-         if (uangBayar < totalTagihan) {
+                if (uangBayar < totalTagihan) {
                     printf("\nUang tidak cukup! Transaksi dibatalkan.\n");
-                } else {
+                } 
+                else {
                     kembalian = uangBayar - totalTagihan;
                     printf("Kembalian           : Rp %d\n", kembalian);
-                    printf("\nStatus Berubah Menjadi LUNAS.\n");
+                    printf("Status berubah menjadi LUNAS.\n");
 
-    // UPDATE STATUS DI DATABASE
-                    data[idx].sudahBayar = 1; 
+                    data[idx].sudahBayar = 1;
                 }
             }
 
         } else {
-            printf("jumlah Peserta tidak valid!\n");
+            printf("Nomor peserta tidak valid!\n");
         }
 
         printf("\nProses pembayaran lain? (y/n): ");
