@@ -543,6 +543,7 @@ for (int i = 0; i<jumlahPeserta; i++){
     omsetKantin += (data[i].beliKopi * 5000 + data[i].beliMie * 10000);
 }
 
+
 //2. bikin nama file
 time_t waktu = time (NULL);
 struct tm tm = *localtime(&waktu);
@@ -558,6 +559,21 @@ if (f == NULL){
 printf ("Sedang menyimpan laporan ke-'%s'\n",namaFile);
 
 //3. bikin laporan di file
+
+fprintf(f, "=== LAPORAN SESI PEMANCINGAN ===\n");
+    fprintf(f, "Waktu Cetak : %02d-%02d-%04d Pukul %02d:%02d\n", 
+            tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900, tm.tm_hour, tm.tm_min);
+    fprintf(f, "Total Peserta: %d Orang\n\n", noPeserta);
+
+    fprintf(f, "--- RINGKASAN KEUANGAN ---\n");
+    fprintf(f, "1. Total Uang Tiket Masuk : Rp %ld\n", totalTiket);
+    fprintf(f, "2. Modal Belanja Ikan     : Rp %ld (Disisihkan)\n", modalIkan);
+    fprintf(f, "3. Total Dana Hadiah      : Rp %ld (Dibagikan)\n", danaHadiah);
+    fprintf(f, "4. Total Pendapatan Kantin: Rp %ld\n", omsetKantin);
+    fprintf(f, "--------------------------------------------\n");
+    fprintf(f, "TOTAL UANG KAS (Kantin)   : Rp %ld\n", omsetKantin); 
+    fprintf(f, "--------------------------------------------\n\n");
+
  fprintf(f, "--- DATA PESERTA ---\n");
     fprintf(f,
         "%-4s %-20s %-8s %-10s %-6s %-6s %-6s %-10s\n",
