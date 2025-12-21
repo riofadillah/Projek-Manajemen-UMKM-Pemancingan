@@ -531,12 +531,12 @@ do{
 void akhiriProgram (){
 
 //1. bikin perhitungan keuangan
-float totalTiket  = jumlahPeserta * 70000;
-float modalIkan   = jumlahPeserta * 38000;
-float danaHadiah  = jumlahPeserta * 32000;
-float totalKopi   = jumlahPeserta * 5000;
-float totalMie   = jumlahPeserta * 10000;
-float omsetKantin = 0;
+long totalTiket  = jumlahPeserta * 70000;
+long modalIkan   = jumlahPeserta * 38000;
+long danaHadiah  = jumlahPeserta * 32000;
+long totalKopi   = jumlahPeserta * 5000;
+long totalMie   = jumlahPeserta * 10000;
+long omsetKantin = 0;
 
 //omsetkantin
 for (int i = 0; i<jumlahPeserta; i++){
