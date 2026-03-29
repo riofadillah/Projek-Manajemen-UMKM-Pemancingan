@@ -1,28 +1,28 @@
-UMKM Fishing Management System (CLI - C)
+# Sistem Manajemen UMKM Pemancingan (CLI - C)
 
-This project is a simple CLI-based application developed using C to assist in managing administrative activities for a fishing UMKM business.
+Proyek ini merupakan aplikasi berbasis Command Line Interface (CLI) yang dikembangkan menggunakan bahasa C untuk membantu pengelolaan administrasi pada UMKM pemancingan.
 
-📌 Description
-The system is designed to help manage basic operations such as recording data and handling simple transactions. It was built as a team project to simulate a real-world management system in a small-scale business.
+📌 Deskripsi
+Sistem ini dirancang untuk mempermudah pengelolaan data dan transaksi sederhana pada usaha pemancingan. Proyek ini dibuat sebagai tugas kelompok untuk mensimulasikan sistem manajemen sederhana pada skala UMKM.
 
-⚙️ Features
-- Input and manage data
-- Record simple transactions
-- Display information through CLI interface
-- Basic menu navigation system
+⚙️ Fitur
+- Input dan pengelolaan data
+- Pencatatan transaksi sederhana
+- Menampilkan informasi melalui tampilan CLI
+- Sistem navigasi menu sederhana
 
-🛠️ Tech Stack
-- C Programming Language
-- CLI (Command Line Interface)
+🛠️ Teknologi yang Digunakan
+- Bahasa C
+- Command Line Interface (CLI)
 
-👥 Project Role
-This project was developed as a team project.  
-I contributed as a **team lead**, guiding the development process, helping structure the program, and focusing on debugging and improving code stability.
+👥 Peran dalam Proyek
+Proyek ini dikerjakan secara tim.  
+Saya berperan sebagai **ketua tim**, yang mengarahkan proses pengembangan, membantu penyusunan alur program, serta melakukan debugging dan perbaikan struktur kode.
 
-🎯 Purpose
-The main goal of this project is to understand basic system design, program logic, and how simple applications can be used to support small businesses.
+🎯 Tujuan
+Tujuan dari proyek ini adalah untuk memahami dasar perancangan sistem, logika pemrograman, serta penerapan program sederhana dalam membantu pengelolaan usaha kecil.
 
-🚀 Future Improvements
-- Improve user interface (better CLI interaction)
-- Add more features and data validation
-- Optimize code structure
+🚀 Pengembangan Selanjutnya
+- Meningkatkan tampilan interaksi CLI
+- Menambahkan validasi data
+- Mengoptimalkan struktur dan efisiensi kode
