@@ -1,15 +1,28 @@
-# UMKM Fishing Management System (CLI - C)
+UMKM Fishing Management System (CLI - C)
 
-A simple CLI-based application built using C to help manage administrative activities for a fishing UMKM business.
+This project is a simple CLI-based application developed using C to assist in managing administrative activities for a fishing UMKM business.
 
-## Features
-- Manage customer data
-- Record transactions
-- Basic reporting system
+📌 Description
+The system is designed to help manage basic operations such as recording data and handling simple transactions. It was built as a team project to simulate a real-world management system in a small-scale business.
 
-## Tech Stack
+⚙️ Features
+- Input and manage data
+- Record simple transactions
+- Display information through CLI interface
+- Basic menu navigation system
+
+🛠️ Tech Stack
 - C Programming Language
-- CLI-based system
+- CLI (Command Line Interface)
 
-## Purpose
-This project was developed as a final assignment to simulate a simple management system for UMKM.
+👥 Project Role
+This project was developed as a team project.  
+I contributed as a **team lead**, guiding the development process, helping structure the program, and focusing on debugging and improving code stability.
+
+🎯 Purpose
+The main goal of this project is to understand basic system design, program logic, and how simple applications can be used to support small businesses.
+
+🚀 Future Improvements
+- Improve user interface (better CLI interaction)
+- Add more features and data validation
+- Optimize code structure
